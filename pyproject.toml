@@ -1,0 +1,11 @@
+[project]
+name = "portable-agent-context-system"
+version = "0.1.0"
+description = "File-first portable context governance for AI agent working partners."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = ["ai-agent", "context", "memory", "knowledge-management", "obsidian"]
+
+[tool.unittest]
+start-dir = "tests"
