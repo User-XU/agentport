@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/agentport-logo.png" alt="AgentPort logo" width="150" />
+  <img src="docs/assets/agentport-social-preview.png" alt="AgentPort social preview" width="820" />
 </p>
 
 <h1 align="center">AgentPort</h1>
@@ -23,10 +23,6 @@
   <a href="docs/usage-recipes.md">Recipes</a> ·
   <a href="docs/comparison-with-openviking.md">OpenViking comparison</a> ·
   <a href="ROADMAP.md">Roadmap</a>
-</p>
-
-<p align="center">
-  <img src="docs/assets/agentport-social-preview.png" alt="AgentPort social preview" width="820" />
 </p>
 
 ---
