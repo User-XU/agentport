@@ -25,6 +25,10 @@
   <a href="ROADMAP.md">Roadmap</a>
 </p>
 
+<p align="center">
+  <img src="docs/assets/agentport-social-preview.png" alt="AgentPort social preview" width="820" />
+</p>
+
 ---
 
 ## Overview
