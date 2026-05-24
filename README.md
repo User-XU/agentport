@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/agentport-logo.svg" alt="AgentPort logo" width="150" />
+  <img src="docs/assets/agentport-logo.png" alt="AgentPort logo" width="150" />
 </p>
 
 <h1 align="center">AgentPort</h1>
