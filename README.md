@@ -17,6 +17,10 @@
 </p>
 
 <p align="center">
+  English · <a href="README_CN.md">中文</a>
+</p>
+
+<p align="center">
   <a href="#overview">Overview</a> ·
   <a href="#quick-start">Quick Start</a> ·
   <a href="#architecture">Architecture</a> ·

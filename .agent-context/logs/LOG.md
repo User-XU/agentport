@@ -37,6 +37,7 @@
 
 2026-05-24 | update | rename and README polish
 - Path: README.md
+- Path: README_CN.md
 - Path: docs/assets/agentport-logo.svg
 - Path: docs/assets/agentport-logo.png
 - Path: docs/assets/agentport-social-preview.png
@@ -45,3 +46,9 @@
 - Note: Renamed the project to AgentPort and rebuilt the README as a more
   polished open-source landing page. Added square and social-preview brand
   assets for GitHub presentation.
+
+2026-05-24 | create | Chinese README
+- Path: README_CN.md
+- Path: README.md
+- Note: Added a Chinese README and language switch links so the project has a
+  bilingual GitHub landing page.

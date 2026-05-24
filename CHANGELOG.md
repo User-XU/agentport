@@ -4,6 +4,7 @@
 
 - Renamed the project to AgentPort.
 - Reworked README into a formal open-source project landing page.
+- Added `README_CN.md` and language switch links.
 - Added `docs/assets/agentport-logo.svg`.
 - Added `docs/assets/agentport-logo.png` and
   `docs/assets/agentport-social-preview.png` for repository branding.
