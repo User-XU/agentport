@@ -5,7 +5,7 @@
 Run:
 
 ```bash
-python scripts/pacs.py init-machine --target ~/AgentContext
+python scripts/agentport.py init-machine --target ~/AgentContext
 ```
 
 Then tell the new agent to read:
@@ -19,7 +19,7 @@ Then tell the new agent to read:
 Run:
 
 ```bash
-python scripts/pacs.py init-project --target /path/to/project
+python scripts/agentport.py init-project --target /path/to/project
 ```
 
 Then edit:
@@ -35,5 +35,5 @@ Then edit:
 Run:
 
 ```bash
-python scripts/pacs.py audit --target /path/to/project
+python scripts/agentport.py audit --target /path/to/project
 ```

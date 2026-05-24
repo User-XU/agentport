@@ -1,4 +1,4 @@
-"""Shared constants for Portable Agent Context System scripts."""
+"""Shared constants for AgentPort scripts."""
 
 from __future__ import annotations
 

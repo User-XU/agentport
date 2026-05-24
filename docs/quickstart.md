@@ -6,7 +6,7 @@ machines, use a suitable Python 3.10+ interpreter.
 ## Initialize A Machine Context
 
 ```bash
-/opt/anaconda3/bin/python scripts/pacs.py init-machine --target ~/AgentContext
+/opt/anaconda3/bin/python scripts/agentport.py init-machine --target ~/AgentContext
 ```
 
 This creates:
@@ -28,7 +28,7 @@ instructions and memories under ~/AgentContext/agent-entry/.
 ## Initialize A Project Context
 
 ```bash
-/opt/anaconda3/bin/python scripts/pacs.py init-project --target /path/to/project
+/opt/anaconda3/bin/python scripts/agentport.py init-project --target /path/to/project
 ```
 
 This creates:
@@ -44,7 +44,7 @@ This creates:
 ## Audit Context Placement
 
 ```bash
-/opt/anaconda3/bin/python scripts/pacs.py audit --target /path/to/project
+/opt/anaconda3/bin/python scripts/agentport.py audit --target /path/to/project
 ```
 
 Audit checks:
@@ -56,7 +56,7 @@ Audit checks:
 ## Route A New Memory
 
 ```bash
-/opt/anaconda3/bin/python scripts/pacs.py route \
+/opt/anaconda3/bin/python scripts/agentport.py route \
   --text "For this project, run make verify before claiming completion."
 ```
 
@@ -68,6 +68,6 @@ The script returns a recommended bucket such as `project_rules`,
 1. Initialize the machine or project context.
 2. Review generated files.
 3. Edit placeholders.
-4. Run `scripts/pacs.py audit`.
+4. Run `scripts/agentport.py audit`.
 5. Commit only reviewed public/project context.
 6. Keep `.agent-context/private/` local.

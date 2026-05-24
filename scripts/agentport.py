@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Unified CLI for Portable Agent Context System."""
+"""Unified CLI for AgentPort."""
 
 from __future__ import annotations
 
@@ -76,7 +76,7 @@ def cmd_route(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     """Build the CLI parser."""
 
-    parser = argparse.ArgumentParser(description="Portable Agent Context System CLI")
+    parser = argparse.ArgumentParser(description="AgentPort CLI")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     init_machine_parser = subparsers.add_parser("init-machine", help="Create machine-level agent-entry files")

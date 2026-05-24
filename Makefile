@@ -7,10 +7,10 @@ test:
 	$(PYTHON_ENV) $(PYTHON) -m unittest discover -s tests
 
 audit:
-	$(PYTHON_ENV) $(PYTHON) scripts/pacs.py audit --target . --json
+	$(PYTHON_ENV) $(PYTHON) scripts/agentport.py audit --target . --json
 
 audit-machine:
-	$(PYTHON_ENV) $(PYTHON) scripts/pacs.py audit --target . --mode machine --json
+	$(PYTHON_ENV) $(PYTHON) scripts/agentport.py audit --target . --mode machine --json
 
 verify: test audit audit-machine
 

@@ -16,7 +16,7 @@
 Run:
 
 ```bash
-python scripts/pacs.py audit --target /path/to/context
+python scripts/agentport.py audit --target /path/to/context
 ```
 
 If the audit flags a likely secret, move it to private local storage or remove

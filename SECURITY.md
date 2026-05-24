@@ -1,6 +1,6 @@
 # Security
 
-Portable Agent Context System is designed to reduce accidental context leakage,
+AgentPort is designed to reduce accidental context leakage,
 but it cannot prove that every file is safe.
 
 ## What Must Stay Private
@@ -16,7 +16,7 @@ but it cannot prove that every file is safe.
 Run:
 
 ```bash
-PYTHONDONTWRITEBYTECODE=1 /opt/anaconda3/bin/python scripts/pacs.py audit --target . --json
+PYTHONDONTWRITEBYTECODE=1 /opt/anaconda3/bin/python scripts/agentport.py audit --target . --json
 ```
 
 Audit checks required files and likely secret patterns. Treat it as a guardrail,

@@ -1,6 +1,6 @@
 # Contributing
 
-Portable Agent Context System is intentionally file-first and small. Contributions
+AgentPort is intentionally file-first and small. Contributions
 should preserve that shape.
 
 ## Principles
@@ -19,7 +19,7 @@ Run the verification suite before proposing changes:
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 /opt/anaconda3/bin/python -m unittest discover -s tests
-PYTHONDONTWRITEBYTECODE=1 /opt/anaconda3/bin/python scripts/pacs.py audit --target . --json
+PYTHONDONTWRITEBYTECODE=1 /opt/anaconda3/bin/python scripts/agentport.py audit --target . --json
 ```
 
 Or use:

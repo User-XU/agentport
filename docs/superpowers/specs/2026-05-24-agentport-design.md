@@ -1,4 +1,4 @@
-# Portable Agent Context System Design
+# AgentPort Design
 
 ## Goal
 
@@ -8,7 +8,7 @@ collaboration training.
 
 ## Product Positioning
 
-Portable Agent Context System is a personal AI working partner context system.
+AgentPort is a personal AI working partner context system.
 It is not a single skill and not a memory database. The project includes a
 canonical `agent-entry/`, documentation, project templates, scripts, and an
 optional skill adapter.

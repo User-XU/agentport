@@ -1,11 +1,11 @@
 ---
-name: portable-agent-context
-description: Use when working with Portable Agent Context System: initialize machine or project agent context, audit context placement, route candidate memories, or decide where rules, memories, knowledge, logs, and private state should live across machines and agents.
+name: agentport
+description: Use when working with AgentPort: initialize machine or project agent context, audit context placement, route candidate memories, or decide where rules, memories, knowledge, logs, and private state should live across machines and agents.
 ---
 
-# Portable Agent Context
+# AgentPort
 
-This skill teaches an agent how to operate a Portable Agent Context System
+This skill teaches an agent how to operate an AgentPort
 project. The system's main product is the repository, especially `agent-entry/`,
 project templates, and scripts; this skill is only an adapter for agents.
 
@@ -23,11 +23,11 @@ Use this skill when the user asks to:
 
 1. Inspect the target directory before writing.
 2. Read `SCHEMA.md` for scope and type contracts.
-3. For initialization, use `scripts/pacs.py` instead of hand-building files:
-   - `scripts/pacs.py init-machine`
-   - `scripts/pacs.py init-project`
-4. For candidate memory, run `scripts/pacs.py route` and review the bucket.
-5. For safety and completeness, run `scripts/pacs.py audit`.
+3. For initialization, use `scripts/agentport.py` instead of hand-building files:
+   - `scripts/agentport.py init-machine`
+   - `scripts/agentport.py init-project`
+4. For candidate memory, run `scripts/agentport.py route` and review the bucket.
+5. For safety and completeness, run `scripts/agentport.py audit`.
 6. Do not store secrets or local private state in syncable context.
 
 ## References

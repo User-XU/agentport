@@ -3,9 +3,9 @@
 ## 1. Bootstrap A New Machine
 
 ```bash
-git clone https://github.com/User-XU/portable-agent-context-system.git
-cd portable-agent-context-system
-/opt/anaconda3/bin/python scripts/pacs.py init-machine --target ~/AgentContext
+git clone https://github.com/User-XU/agentport.git
+cd agentport
+/opt/anaconda3/bin/python scripts/agentport.py init-machine --target ~/AgentContext
 ```
 
 Then give a new agent:
@@ -18,8 +18,8 @@ yourself from the instructions and memories under ~/AgentContext/agent-entry/.
 ## 2. Add Project Context To A Repository
 
 ```bash
-/opt/anaconda3/bin/python scripts/pacs.py init-project --target /path/to/project
-/opt/anaconda3/bin/python scripts/pacs.py audit --target /path/to/project --json
+/opt/anaconda3/bin/python scripts/agentport.py init-project --target /path/to/project
+/opt/anaconda3/bin/python scripts/agentport.py audit --target /path/to/project --json
 ```
 
 Review generated files before committing them.
@@ -27,7 +27,7 @@ Review generated files before committing them.
 ## 3. Route A Candidate Memory
 
 ```bash
-/opt/anaconda3/bin/python scripts/pacs.py route \
+/opt/anaconda3/bin/python scripts/agentport.py route \
   --text "For this project, always run make verify before claiming completion."
 ```
 
@@ -51,6 +51,6 @@ This runs tests, project audit, and machine-entry audit.
 
 ## 5. Use The Skill Adapter
 
-Copy or symlink `skills/portable-agent-context/` into an agent skill directory.
+Copy or symlink `skills/agentport/` into an agent skill directory.
 The skill is not the product. It is only an adapter that teaches compatible
 agents how to operate this repository.

@@ -13,11 +13,11 @@ Write only when the candidate is:
 
 ## Update Pattern
 
-1. Classify candidate context with `scripts/pacs.py route`.
+1. Classify candidate context with `scripts/agentport.py route`.
 2. Review the recommended bucket.
 3. Add a dated entry if the change is durable.
 4. Preserve conflicting older memory with dates when the conflict matters.
-5. Run `scripts/pacs.py audit`.
+5. Run `scripts/agentport.py audit`.
 
 ## Avoid
 

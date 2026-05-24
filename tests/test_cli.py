@@ -14,7 +14,7 @@ class CliTests(unittest.TestCase):
         env = os.environ.copy()
         env["PYTHONDONTWRITEBYTECODE"] = "1"
         return subprocess.run(
-            [PYTHON, str(ROOT / "scripts/pacs.py"), *args],
+            [PYTHON, str(ROOT / "scripts/agentport.py"), *args],
             cwd=ROOT,
             env=env,
             text=True,

@@ -1,6 +1,6 @@
 # Context README
 
-This project uses Portable Agent Context System.
+This project uses AgentPort.
 
 ## Agent Startup
 

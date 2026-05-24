@@ -34,3 +34,11 @@
 - Path: /Users/xuxiangyang/portable-agent-context-system
 - Note: Moved the project outside the Obsidian vault so it can become an
   independent GitHub repository.
+
+2026-05-24 | update | rename and README polish
+- Path: README.md
+- Path: docs/assets/agentport-logo.svg
+- Path: scripts/agentport.py
+- Path: skills/agentport/
+- Note: Renamed the project to AgentPort and rebuilt the README as a more
+  polished open-source landing page.

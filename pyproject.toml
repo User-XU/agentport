@@ -1,5 +1,5 @@
 [project]
-name = "portable-agent-context-system"
+name = "agentport"
 version = "0.1.0"
 description = "File-first portable context governance for AI agent working partners."
 readme = "README.md"

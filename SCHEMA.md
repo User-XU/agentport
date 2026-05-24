@@ -1,6 +1,6 @@
 # Context Schema
 
-This schema defines the durable file contracts for Portable Agent Context
+This schema defines the durable file contracts for AgentPort
 System.
 
 ## Scopes

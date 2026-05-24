@@ -1,6 +1,6 @@
 # Example: Obsidian Knowledge Vault
 
-This example maps a Git-backed Obsidian vault into Portable Agent Context System
+This example maps a Git-backed Obsidian vault into AgentPort
 terms.
 
 ## Mapping

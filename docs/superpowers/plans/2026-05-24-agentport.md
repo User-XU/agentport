@@ -1,4 +1,4 @@
-# Portable Agent Context System Implementation Plan
+# AgentPort Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -45,7 +45,7 @@ into durable buckets.
 - Create: `scripts/init_project.py`
 - Create: `scripts/audit_context.py`
 - Create: `scripts/evolve_memory.py`
-- Create: `scripts/pacs.py`
+- Create: `scripts/agentport.py`
 
 - [x] Implement template copy helpers.
 - [x] Implement required-file audit.
@@ -56,8 +56,8 @@ into durable buckets.
 ### Task 4: Skill Adapter
 
 **Files:**
-- Create: `skills/portable-agent-context/SKILL.md`
-- Create: `skills/portable-agent-context/references/*.md`
+- Create: `skills/agentport/SKILL.md`
+- Create: `skills/agentport/references/*.md`
 
 - [x] Write a concise skill body.
 - [x] Move detailed routing and safety rules into references.

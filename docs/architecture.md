@@ -1,6 +1,6 @@
 # Architecture
 
-Portable Agent Context System has four layers.
+AgentPort has four layers.
 
 ## 1. Agent Entry
 
@@ -23,7 +23,7 @@ agent-entry/
 ```
 
 The repository root contains this `agent-entry/` directly. It is the canonical
-source for machine-level bootstrap files. `scripts/pacs.py init-machine` copies
+source for machine-level bootstrap files. `scripts/agentport.py init-machine` copies
 it into a target workspace as `target/agent-entry/`.
 
 Project template:
@@ -52,8 +52,8 @@ The registry is intentionally compatible with Git and Obsidian-like vaults.
 
 Initialization scripts create consistent starting structures:
 
-- `scripts/pacs.py init-machine` creates machine-level `agent-entry/`.
-- `scripts/pacs.py init-project` creates project-level `.agent-context/` files.
+- `scripts/agentport.py init-machine` creates machine-level `agent-entry/`.
+- `scripts/agentport.py init-project` creates project-level `.agent-context/` files.
 - templates are copied without overwriting by default.
 
 New machines should inherit structure, then recalibrate local tools and paths.
@@ -65,9 +65,9 @@ stored.
 
 The first version is intentionally conservative:
 
-- `scripts/pacs.py route` classifies candidate context into a recommended
+- `scripts/agentport.py route` classifies candidate context into a recommended
   bucket.
-- `scripts/pacs.py audit` checks required files and sensitive leakage.
+- `scripts/agentport.py audit` checks required files and sensitive leakage.
 - humans or agents can review recommendations before committing changes.
 
 Later versions can add MCP, search indexes, embeddings, or OpenViking-style

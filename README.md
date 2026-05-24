@@ -1,114 +1,174 @@
-# Portable Agent Context System
+<p align="center">
+  <img src="docs/assets/agentport-logo.svg" alt="AgentPort logo" width="150" />
+</p>
 
-Portable Agent Context System is a lightweight project template and toolset for
-making an AI working partner portable across machines, projects, and agent
-clients.
+<h1 align="center">AgentPort</h1>
 
-It is not a vector database and not just a prompt template. It is a context
-governance system: rules, memories, project state, public references, and
-machine-local private state each have a durable home.
+<p align="center">
+  Portable context governance for long-running AI working partners.
+</p>
 
-## Why This Exists
+<p align="center">
+  <a href="https://github.com/User-XU/agentport"><img alt="status" src="https://img.shields.io/badge/status-alpha-2563eb?style=flat-square&labelColor=0b1020"></a>
+  <a href="https://github.com/User-XU/agentport/blob/main/LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-14b8a6?style=flat-square&labelColor=0b1020"></a>
+  <img alt="python" src="https://img.shields.io/badge/python-3.10%2B-60a5fa?style=flat-square&labelColor=0b1020">
+  <img alt="dependencies" src="https://img.shields.io/badge/deps-stdlib%20only-f8fafc?style=flat-square&labelColor=0b1020">
+  <a href="https://github.com/User-XU/agentport/commits/main"><img alt="last commit" src="https://img.shields.io/github/last-commit/User-XU/agentport?style=flat-square&labelColor=0b1020&color=22c55e"></a>
+</p>
 
-Most agent memory systems start from storage. This project starts from the
-human workflow problem:
+<p align="center">
+  <a href="#overview">Overview</a> ·
+  <a href="#quick-start">Quick Start</a> ·
+  <a href="#architecture">Architecture</a> ·
+  <a href="docs/usage-recipes.md">Recipes</a> ·
+  <a href="docs/comparison-with-openviking.md">OpenViking comparison</a> ·
+  <a href="ROADMAP.md">Roadmap</a>
+</p>
 
-- A useful agent becomes less useful when you change machines.
-- Project rules get mixed with global preferences.
-- Temporary chat summaries pretend to be durable memory.
-- Sensitive local state leaks into synced folders.
-- Every new agent needs to be trained from scratch.
+---
 
-This project turns agent context into a portable working system, so the next
-machine or agent can inherit structure instead of relearning everything.
+## Overview
 
-## Core Idea
+AgentPort is a file-first system for making an AI working partner portable
+across machines, repositories, and agent clients.
 
-Every piece of context answers two questions before it is stored:
+Most agent memory systems begin with storage. AgentPort begins with governance:
+where rules live, where memories live, what is safe to sync, what must stay
+private, and how a new agent should bootstrap itself without old chat history.
 
-1. What scope does it belong to?
-2. What type of context is it?
+It gives you a small, Git-friendly structure for:
 
-Scopes:
+- **agent entry**: shared startup instructions for Codex, Claude, Hermes, and
+  similar agents
+- **memory evolution**: a policy for deciding what becomes durable memory
+- **project context**: repository-local rules, memory, logs, and private
+  boundaries
+- **context audit**: checks for required files and likely secret leakage
+- **portable bootstrap**: repeatable setup for new machines and new projects
 
-- `global`: thin user-level constraints and durable collaboration defaults.
-- `public`: shared cross-agent rules and memories safe to sync.
-- `project`: repository-specific rules, memory, logs, and knowledge.
-- `private`: machine-local state, credentials, paths, and sensitive details.
+AgentPort is not a vector database and not just a prompt template. It is the
+context contract around your agents.
 
-Types:
+## Why AgentPort
 
-- `rules`: instructions that constrain behavior.
-- `memory`: stable facts and collaboration history.
-- `knowledge`: formal reusable research or domain knowledge.
-- `logs`: chronological operation records.
-- `private-state`: local configuration that should not be synced.
-
-## Project Shape
-
-```text
-portable-agent-context-system/
-  agent-entry/                  # canonical machine-level agent entry
-  docs/                         # philosophy, architecture, quickstart
-  templates/                    # copyable project context layouts
-  scripts/                      # init, audit, and memory routing helpers
-  skills/portable-agent-context # optional agent skill adapter
-  examples/                     # concrete mappings from real workflows
-  tests/                        # stdlib unittest coverage for scripts
-```
-
-Useful docs:
-
-- [Quickstart](docs/quickstart.md)
-- [Architecture](docs/architecture.md)
-- [Usage recipes](docs/usage-recipes.md)
-- [Roadmap](ROADMAP.md)
-- [Security](SECURITY.md)
+| Common problem | AgentPort answer |
+| --- | --- |
+| A useful agent forgets you when you change machines | `agent-entry/` carries shared startup rules and memory modules |
+| Global preferences get mixed with project rules | scope model: `global`, `public`, `project`, `private` |
+| Chat summaries pretend to be durable memory | memory write gate and routing policy |
+| Secrets drift into synced folders | private boundary plus audit scanner |
+| Every repo invents agent instructions differently | reusable project template with `AGENTS.md`, `CLAUDE.md`, `HERMES.md` |
 
 ## Quick Start
+
+Clone the repository:
+
+```bash
+git clone https://github.com/User-XU/agentport.git
+cd agentport
+```
 
 Initialize a machine-level context workspace:
 
 ```bash
-/opt/anaconda3/bin/python scripts/pacs.py init-machine --target ~/AgentContext
+/opt/anaconda3/bin/python scripts/agentport.py init-machine --target ~/AgentContext
 ```
 
-Initialize a project-level context inside an existing repository:
+Initialize agent context inside a project:
 
 ```bash
-/opt/anaconda3/bin/python scripts/pacs.py init-project --target /path/to/project
+/opt/anaconda3/bin/python scripts/agentport.py init-project --target /path/to/project
 ```
 
-Audit a project context:
+Audit context placement:
 
 ```bash
-/opt/anaconda3/bin/python scripts/pacs.py audit --target /path/to/project
+/opt/anaconda3/bin/python scripts/agentport.py audit --target /path/to/project --json
 ```
 
-Classify a candidate memory before storing it:
+Route a candidate memory before storing it:
 
 ```bash
-/opt/anaconda3/bin/python scripts/pacs.py route \
-  --text "Always use /opt/anaconda3/bin/python for Python work."
+/opt/anaconda3/bin/python scripts/agentport.py route \
+  --text "For this project, always run make verify before claiming completion."
 ```
 
-Verify the repository:
+Verify this repository:
 
 ```bash
 make verify
 ```
 
+## Architecture
+
+```mermaid
+flowchart LR
+    A["New machine or agent"] --> B["agent-entry/"]
+    B --> C["instructions"]
+    B --> D["memories"]
+    C --> E["Project inspection"]
+    D --> E
+    E --> F[".agent-context/"]
+    F --> G["rules"]
+    F --> H["memory"]
+    F --> I["logs"]
+    F --> J["private boundary"]
+    K["conversation or task"] --> L["candidate context"]
+    L --> M["route"]
+    M --> C
+    M --> D
+    M --> G
+    M --> H
+    M --> J
+```
+
+### Context Scopes
+
+| Scope | Purpose | Sync posture |
+| --- | --- | --- |
+| `global` | thin user-level defaults | user controlled |
+| `public` | shared cross-agent rules and memories | safe to sync |
+| `project` | repository-specific rules, memory, logs | commit with project |
+| `private` | credentials, machine state, sensitive paths | local only |
+
+### Repository Shape
+
+```text
+agentport/
+  agent-entry/                  # canonical machine-level agent entry
+  templates/project-context/    # project bootstrap files
+  scripts/agentport.py          # unified CLI
+  skills/agentport/             # optional agent skill adapter
+  docs/                         # architecture, recipes, comparison
+  tests/                        # stdlib unittest coverage
+```
+
+## CLI
+
+| Command | Use |
+| --- | --- |
+| `init-machine` | copy root `agent-entry/` into a machine context workspace |
+| `init-project` | create project-level agent context files |
+| `audit` | check required files and likely secret leakage |
+| `route` | classify candidate context before making it durable |
+
 ## Relationship To OpenViking
 
-This project is inspired by the same broad problem space as
+AgentPort is inspired by the same broad problem space as
 [OpenViking](https://github.com/volcengine/OpenViking): agent context is
-fragmented, hard to retrieve, and hard to evolve. OpenViking approaches that as
-a context database. This project approaches it as a portable personal work
-system: Git-friendly files, explicit scopes, agent entrypoints, templates, and
-auditable memory evolution.
+fragmented, hard to retrieve, and hard to evolve.
+
+OpenViking approaches this as a context database. AgentPort approaches it as a
+portable personal work system: Git-friendly files, explicit scopes, shared agent
+entrypoints, project templates, and auditable memory evolution.
+
+They can be complementary: AgentPort can define the human-readable source of
+truth, while a future OpenViking-style backend could index and retrieve it.
 
 ## Status
 
-Alpha. The first version is intentionally file-first and local-first. A later
-version can add MCP, indexing, visual inspection, or integrations with systems
-such as OpenViking/OpenMemory without changing the core governance model.
+AgentPort is alpha and intentionally local-first. The first release keeps the
+core system simple: Markdown, Git, and Python standard library scripts.
+
+Future stages may add MCP, indexing, visual inspection, or a richer retrieval
+backend without replacing the file contracts.

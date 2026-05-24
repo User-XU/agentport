@@ -4,10 +4,10 @@
 database for AI agents. It uses a filesystem-oriented paradigm to manage agent
 context such as memories, resources, and skills.
 
-Portable Agent Context System is inspired by the same problem but starts from a
+AgentPort is inspired by the same problem but starts from a
 different product layer.
 
-| Dimension | OpenViking | Portable Agent Context System |
+| Dimension | OpenViking | AgentPort |
 | --- | --- | --- |
 | Primary layer | context database | personal/workspace context governance |
 | Core object | memories, resources, skills | rules, memories, projects, knowledge, private state |
@@ -25,7 +25,7 @@ what should enter memory, where it belongs, and what must remain private.
 
 ## Differentiation
 
-Portable Agent Context System focuses on:
+AgentPort focuses on:
 
 - new-machine onboarding
 - multi-agent shared entrypoints

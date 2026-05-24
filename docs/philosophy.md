@@ -1,6 +1,6 @@
 # Philosophy
 
-Portable Agent Context System is built around one belief:
+AgentPort is built around one belief:
 
 > The future advantage is not a person using an AI tool once. It is a person and
 > a trained AI working partner becoming a durable unit.
